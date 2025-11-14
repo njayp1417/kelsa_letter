@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelsa Letter Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Kelsa Letter Generator</h1>
+        
+        <div class="form-section">
+            <h2>Letter Details</h2>
+            <input type="text" id="recipientName" placeholder="Recipient Name">
+            <textarea id="recipientAddress" placeholder="Recipient Address"></textarea>
+            <input type="date" id="date">
+            <input type="text" id="reference" placeholder="Reference (Optional)">
+            <input type="text" id="subject" placeholder="Subject">
+            <input type="text" id="salutation" value="Dear Sir/Madam," placeholder="Salutation">
+            <textarea id="body" placeholder="Letter Body"></textarea>
+            <input type="text" id="closing" value="Yours faithfully," placeholder="Closing">
+        </div>
+
+        <div class="preview-section">
+            <h2>Preview</h2>
+            <div id="letter">
+                <img src="template.png" id="template" alt="Letter Template">
+                <div id="overlay">
+                    <div id="dateText"></div>
+                    <div id="referenceText"></div>
+                    <div id="recipientNameText"></div>
+                    <div id="recipientAddressText"></div>
+                    <div id="subjectText"></div>
+                    <div id="salutationText"></div>
+                    <div id="bodyText"></div>
+                    <div id="closingText"></div>
+                    <img src="signature.webp" id="signature" alt="Signature">
+                    <div id="signatureText">FOR: KELSA EVENT</div>
+                </div>
+            </div>
+            
+            <button onclick="generatePDF()" class="download-btn">Download PDF</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

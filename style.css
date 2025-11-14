@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #1a237e;
+    margin-bottom: 30px;
+}
+
+.form-section {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.form-section h2 {
+    color: #1a237e;
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ffb300;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.preview-section {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.preview-section h2 {
+    color: #1a237e;
+    margin-bottom: 20px;
+}
+
+#letter {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#template {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Text positioning - adjust these values to match your template */
+#dateText {
+    position: absolute;
+    top: 15%;
+    right: 8%;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+
+#referenceText {
+    position: absolute;
+    top: 17%;
+    right: 8%;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+
+#recipientNameText {
+    position: absolute;
+    top: 22%;
+    left: 8%;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+
+#recipientAddressText {
+    position: absolute;
+    top: 24%;
+    left: 8%;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    white-space: pre-line;
+}
+
+#subjectText {
+    position: absolute;
+    top: 32%;
+    left: 8%;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+
+#salutationText {
+    position: absolute;
+    top: 36%;
+    left: 8%;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+
+#bodyText {
+    position: absolute;
+    top: 40%;
+    left: 8%;
+    width: 84%;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    white-space: pre-wrap;
+    line-height: 1.4;
+}
+
+#closingText {
+    position: absolute;
+    top: 70%;
+    left: 8%;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+
+#signature {
+    position: absolute;
+    top: 74%;
+    left: 8%;
+    width: 120px;
+    height: auto;
+}
+
+#signatureText {
+    position: absolute;
+    top: 82%;
+    left: 8%;
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.download-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ffb300;
+    color: #1a237e;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.download-btn:hover {
+    background: #c68400;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    body {
+        padding: 10px;
+    }
+}
