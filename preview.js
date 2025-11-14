@@ -17,6 +17,9 @@ window.addEventListener('load', function() {
     document.getElementById('salutationText').textContent = letterData.salutation || '';
     document.getElementById('bodyText').textContent = letterData.body || '';
     document.getElementById('closingText').textContent = letterData.closing || '';
+    
+    // Auto-scale content
+    autoScaleText();
 });
 
 // Go back to edit form
@@ -24,11 +27,48 @@ function goBack() {
     window.location.href = 'index.html';
 }
 
+// Auto-scale text to fit
+function autoScaleText() {
+    const bodyText = document.getElementById('bodyText');
+    const letterData = JSON.parse(localStorage.getItem('letterData'));
+    const text = letterData.body || '';
+    
+    // Check if text is too long
+    if (text.length > 800) {
+        bodyText.style.fontSize = '10px';
+        bodyText.style.lineHeight = '1.2';
+    } else if (text.length > 500) {
+        bodyText.style.fontSize = '11px';
+        bodyText.style.lineHeight = '1.3';
+    } else {
+        bodyText.style.fontSize = '12px';
+        bodyText.style.lineHeight = '1.4';
+    }
+    
+    // Truncate if still too long
+    if (text.length > 1200) {
+        const truncated = text.substring(0, 1200) + '...';
+        bodyText.textContent = truncated;
+        
+        // Show warning
+        if (!document.getElementById('lengthWarning')) {
+            const warning = document.createElement('div');
+            warning.id = 'lengthWarning';
+            warning.style.cssText = 'background: #fff3cd; color: #856404; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ffeaa7;';
+            warning.innerHTML = '⚠️ Letter content was truncated to fit on one page. Consider shortening your message.';
+            document.querySelector('.preview-section').insertBefore(warning, document.getElementById('letter'));
+        }
+    }
+}
+
 // Generate PDF function
 async function generatePDF() {
     const element = document.getElementById('letter');
     
     try {
+        // Auto-scale before generating
+        autoScaleText();
+        
         const canvas = await html2canvas(element, {
             scale: 2,
             useCORS: true,
