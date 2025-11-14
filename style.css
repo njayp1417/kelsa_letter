@@ -186,7 +186,7 @@ textarea {
     letter-spacing: 1px;
 }
 
-.download-btn {
+.preview-btn, .download-btn, .back-btn {
     width: 100%;
     padding: 15px;
     background: #ffb300;
@@ -200,9 +200,30 @@ textarea {
     transition: all 0.3s;
 }
 
-.download-btn:hover {
+.preview-btn:hover, .download-btn:hover {
     background: #c68400;
     color: white;
+}
+
+.back-btn {
+    background: #1a237e;
+    color: white;
+    margin-right: 10px;
+}
+
+.back-btn:hover {
+    background: #000051;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-group button {
+    flex: 1;
+    margin-top: 0;
 }
 
 @media (max-width: 768px) {
